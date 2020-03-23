@@ -3,12 +3,28 @@ import { render } from "react-dom";
 import Hello from "./Hello";
 import "./style.css";
 import { myStore } from "./store";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useSelector, useDispatch } from "react-redux";
 
 function Apple(props) {
   const counter = useSelector(state => state.counter);
-  console.log(counter);
-  return <p>{counter}</p>;
+  const dispatch = useDispatch();
+  
+  let increment = () => {type: 'INCREMENT'}
+  let decrement = () => {type: 'DECREMENT'}
+
+  let plus = (e) => {
+    return increment();
+  }
+  let minus = (e) => {
+    return decrement();
+  }
+  return (
+    <div>
+      <p>{counter}</p>
+      <button onClick={plus}>+</button>
+      <button onClick={minus}>-</button>
+    </div>
+  );
 }
 class App extends Component {
   constructor() {
