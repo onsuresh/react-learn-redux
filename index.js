@@ -4,19 +4,17 @@ import Hello from "./Hello";
 import "./style.css";
 import { myStore } from "./store";
 import { Provider, useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from './store/action/action';
 
 function Apple(props) {
   const counter = useSelector(state => state.counter);
   const dispatch = useDispatch();
-  
-  let increment = () => {type: 'INCREMENT'}
-  let decrement = () => {type: 'DECREMENT'}
 
   let plus = (e) => {
-    return increment();
+    return dispatch(increment(5));
   }
   let minus = (e) => {
-    return decrement();
+    return dispatch(decrement(3));
   }
   return (
     <div>
@@ -43,7 +41,7 @@ class App extends Component {
     );
   }
 }
-
+myStore.subscribe(()=> console.log(myStore.getState().counter))
 render(
   <Provider store={myStore}>
     <App />

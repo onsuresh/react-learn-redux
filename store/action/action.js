@@ -1,11 +1,14 @@
-const increment = () => {
+const increment = (val = 0) => {
   return {
-    type: "INCREMENT"
+    type: "INCREMENT",
+    value: val,
+    info: `incremented by ${val}`
   };
 };
-const decrement = () => {
+const decrement = (value) => {
   return {
-    type: "DECREMENT"
+    type: "DECREMENT",
+    info: "decremented by one"
   };
 };
 

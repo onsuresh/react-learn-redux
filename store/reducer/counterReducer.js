@@ -1,12 +1,19 @@
-const counterReducer = (state = 0, action) => {
+const counterReducer = (std = 0, action) => {
   switch (action.type) {
     case "INCREMENT":
-      return state + 1;
+      console.log(action);
+      if (action.value) {
+        std = std + action.value;
+      } else {
+        std = std + 1;
+      }
+      return std;
     case "DECREMENT":
-      return state - 1;
+      console.log(action.info);
+      return std - 1;
     default:
-      return state;
+      return std;
   }
 };
 
-export default  counterReducer;
+export default counterReducer;
