@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { render } from "react-dom";
 import Hello from "./Hello";
 import "./style.css";
-import { store } from "./store";
+import { myStore } from "./store";
 import { Provider } from "react-redux";
 
 class App extends Component {
@@ -23,4 +23,4 @@ class App extends Component {
   }
 }
 
-render(<Provider><App /></Provider>, document.getElementById("root"));
+render(<Provider store={myStore}><App /></Provider>, document.getElementById("root"));
